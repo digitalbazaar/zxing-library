@@ -70,7 +70,11 @@ var DetectionResult = /** @class */ (function () {
             return 0;
         }
         for (var barcodeColumn /*int*/ = 1; barcodeColumn < this.barcodeColumnCount + 1; barcodeColumn++) {
-            var codewords = this.detectionResultColumns[barcodeColumn].getCodewords();
+            var codewords = [];
+            if (this.detectionResultColumns[barcodeColumn]) {
+                codewords = this.detectionResultColumns[barcodeColumn].getCodewords();
+            }
+            // let codewords: Codeword[] = this.detectionResultColumns[barcodeColumn].getCodewords();
             for (var codewordsRow /*int*/ = 0; codewordsRow < codewords.length; codewordsRow++) {
                 if (codewords[codewordsRow] == null) {
                     continue;
@@ -181,7 +185,7 @@ var DetectionResult = /** @class */ (function () {
         var e_1, _a;
         var codeword = codewords[codewordsRow];
         var previousColumnCodewords = [];
-        if (this.detectionResultColumns[barcodeColumn - 1] != null) {
+        if (this.detectionResultColumns[barcodeColumn - 1]) {
             previousColumnCodewords = this.detectionResultColumns[barcodeColumn - 1].getCodewords();
         }
         // let previousColumnCodewords: Codeword[] = this.detectionResultColumns[barcodeColumn - 1].getCodewords();
