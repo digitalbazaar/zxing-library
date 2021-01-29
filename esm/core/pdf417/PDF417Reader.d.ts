@@ -31,6 +31,14 @@ export default class PDF417Reader implements Reader, MultipleBarcodeReader {
      * @param hints
      * @param multiple
      *
+     */
+    private static detect;
+    /**
+     *
+     * @param image
+     * @param hints
+     * @param multiple
+     *
      * @throws NotFoundException
      * @throws FormatExceptionß
      * @throws ChecksumException

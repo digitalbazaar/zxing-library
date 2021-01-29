@@ -84,6 +84,16 @@ export default /*public final*/ class PDF417Reader {
      * @param hints
      * @param multiple
      *
+     */
+    static detect(image, hints, multiple) {
+        return Detector.detectMultiple(image, hints, multiple);
+    }
+    /**
+     *
+     * @param image
+     * @param hints
+     * @param multiple
+     *
      * @throws NotFoundException
      * @throws FormatExceptionß
      * @throws ChecksumException

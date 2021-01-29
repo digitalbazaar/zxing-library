@@ -70,11 +70,7 @@ var DetectionResult = /** @class */ (function () {
             return 0;
         }
         for (var barcodeColumn /*int*/ = 1; barcodeColumn < this.barcodeColumnCount + 1; barcodeColumn++) {
-            var codewords = [];
-            if (this.detectionResultColumns[barcodeColumn]) {
-                codewords = this.detectionResultColumns[barcodeColumn].getCodewords();
-            }
-            // let codewords: Codeword[] = this.detectionResultColumns[barcodeColumn].getCodewords();
+            var codewords = this.detectionResultColumns[barcodeColumn].getCodewords();
             for (var codewordsRow /*int*/ = 0; codewordsRow < codewords.length; codewordsRow++) {
                 if (codewords[codewordsRow] == null) {
                     continue;
@@ -184,11 +180,7 @@ var DetectionResult = /** @class */ (function () {
     DetectionResult.prototype.adjustRowNumbers = function (barcodeColumn, codewordsRow, codewords) {
         var e_1, _a;
         var codeword = codewords[codewordsRow];
-        var previousColumnCodewords = [];
-        if (this.detectionResultColumns[barcodeColumn - 1]) {
-            previousColumnCodewords = this.detectionResultColumns[barcodeColumn - 1].getCodewords();
-        }
-        // let previousColumnCodewords: Codeword[] = this.detectionResultColumns[barcodeColumn - 1].getCodewords();
+        var previousColumnCodewords = this.detectionResultColumns[barcodeColumn - 1].getCodewords();
         var nextColumnCodewords = previousColumnCodewords;
         if (this.detectionResultColumns[barcodeColumn + 1] != null) {
             nextColumnCodewords = this.detectionResultColumns[barcodeColumn + 1].getCodewords();
